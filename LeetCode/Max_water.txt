@@ -1,0 +1,77 @@
+//The following code is not working for a few of the test cases.
+//And the length of the code is also huge use alternative techniques.
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        //int maxStart = height[0];
+
+        //int maxEnd = height[height.size()-1];
+        pair<int, int> pair1;
+        pair<int, int> pair2;
+        
+        pair1.first = height[0];
+        pair1.second = 0;
+
+        pair2.first = height[height.size()-1];
+        pair2.second = height.size()-1;
+
+        int resultantHeight = min(pair1.first, pair2.first);
+
+        int bottomLength =  pair2.second - pair1.second;
+
+        int ans = resultantHeight * bottomLength;
+
+        for(int i = 0, j = height.size()-1; i<j; i++,j--)
+        {
+            int maxS = pair1.first, bottomS = pair1.second;
+            int maxE = pair2.first, bottomE = pair2.second;
+            bool End = false;
+            bool Start = false;
+            
+
+           if(height[i]>maxS)
+           {
+               
+                maxS = height[i];
+                bottomS = i;
+                Start = true;
+                
+           }
+           
+           if(height[j]>maxE)
+           {
+               maxE = height[j];
+               bottomE = j;
+               End = true;
+               
+           }
+           
+           int resultantH = min(maxS, maxE);
+
+           int bottomL = bottomE-bottomS;
+
+           int area  = resultantH * bottomL;
+           
+           if(area>ans)
+           {
+               if(Start)
+               {
+               pair1.first = height[i];
+               pair1.second=i;
+               }
+               if(End)
+               {
+               pair2.first = height[j];
+               pair2.second = j;
+               }
+
+               ans=area;
+
+           }
+
+        }
+        
+        return ans;
+    }
+};

@@ -1,0 +1,2 @@
+char* stringTest();
+void alien();
