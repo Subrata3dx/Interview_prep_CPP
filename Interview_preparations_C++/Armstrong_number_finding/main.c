@@ -42,7 +42,7 @@ return sum;
 //driver function
 int main()
 {
-int num, sum;
+int num, i, sum;
 printf("Enter a value to check if there are some Armstrong value starting from 0:");
 scanf("%d", &num);
 //checks from 0 to num for armstrong values
