@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 //returns the value of x^y
-int getPow(int x, int y) 
+int getPow(int x, int y)
 {
 if(y==0)
 return 1;
@@ -12,7 +12,7 @@ return x*getPow(x, (y-1));
 }
 
 //returns how many digits are there in the int argument
-int getDig(int y) 
+int getDig(int y)
 {
     int num = 0;
     while(y>0)
@@ -25,10 +25,10 @@ int getDig(int y)
 }
 
 //The following function returns the sum total of each digit's raised to the power of the number of the digits in the input
-int getSum(int s) 
+int getSum(int s)
 {
    int sum =0, digit, mod, temp;
-   temp=s; 
+   temp=s;
    digit = getDig(s); //get number of digits
    while(temp>0)
     {
@@ -42,7 +42,7 @@ return sum;
 //driver function
 int main()
 {
-int num, sum;
+int num, i, sum;
 printf("Enter a value to check if there are some Armstrong value starting from 0:");
 scanf("%d", &num);
 //checks from 0 to num for armstrong values
